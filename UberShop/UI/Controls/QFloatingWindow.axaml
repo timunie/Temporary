@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="UberShop.UI.QFloatingWindow"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaChromeHints="NoChrome"
+		ExtendClientAreaTitleBarHeightHint="200"
+		Width="580"
+		Height="600"
+		Title="Panel Title">
+	
+	<Window.Template>
+		<ControlTemplate>
+			<Panel>
+				<Border Background="{StaticResource WindowForegroundColor}" IsHitTestVisible="False" />
+				<Grid RowDefinitions="32, *">
+					<!--Title bar-->
+					<Grid Grid.Row="0">
+						<!--Title text-->
+						<TextBlock HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Content.Title, RelativeSource={RelativeSource TemplatedParent}}" FontFamily="Segoe UI" FontSize="14" Foreground="{StaticResource TextColor}" Margin="0, 9, 0, 0" IsHitTestVisible="False"/>
+
+						<Button HorizontalAlignment="Right" Click="ClosePressed" BorderThickness="0" Foreground="{StaticResource IconColor}" VerticalAlignment="Top" Margin="0, 12, 10, 0" Background="Transparent" VerticalContentAlignment="Top">
+							<TextBlock FontFamily="Segoe Fluent Icons" FontSize="8" Text="&#xEF2C;"/>
+						</Button>
+					</Grid>
+
+					<ContentPresenter Grid.Row="1" Name="PART_ContentPresenter"
+					Margin="6"
+					Background="{StaticResource PanelBackgroundColor}"
+					Content="{TemplateBinding Content}"/>
+				</Grid>
+			</Panel>
+		</ControlTemplate>
+	</Window.Template>
+</Window>

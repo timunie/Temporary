@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:controls="using:UberShop.UI.Controls"
+		xmlns:panels="using:UberShop.UI.Panels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="UberShop.UI.QMainWindow"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaChromeHints="NoChrome"
+		ExtendClientAreaTitleBarHeightHint="200"
+		Width="2000"
+		Height="1100"
+        Title="Untitled">
+
+	<Grid>
+		<controls:QGroup>
+			<panels:QConsolePanel/>
+		</controls:QGroup>
+	</Grid>
+	
+	<Window.Template>
+		<ControlTemplate>
+			<Panel>
+				<Border Background="{StaticResource WindowBackgroundColor}" IsHitTestVisible="False" />
+				<Grid RowDefinitions="66, *">
+					<!--Title bar-->
+					<Grid Grid.Row="0">
+						<!--Title text-->
+						<TextBlock HorizontalAlignment="Center" TextAlignment="Center" Text="{TemplateBinding Title}" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="#E3E3E3" Margin="0, 15, 0, 0" IsHitTestVisible="False"/>
+
+						<!--Title buttons-->
+						<StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Top" Margin="0, 9, 0, 0">
+							<Button Click="MinimizePressed" Padding="20, 0, 20, 0" Height="30" Background="Transparent" VerticalContentAlignment="Center" BorderThickness="0">
+								<TextBlock Foreground="{StaticResource TextColor}" FontFamily="Segoe MDL2 Assets" FontSize="13" Text="&#xE921;" Background="Transparent"/>
+							</Button>
+							<Button Click="MaximizePressed" Padding="20, 0, 20, 0" Height="30" Background="Transparent" VerticalContentAlignment="Center" BorderThickness="0">
+								<TextBlock Foreground="{StaticResource TextColor}" FontFamily="Segoe MDL2 Assets" FontSize="13" Text="&#xE923;" Background="Transparent"/>
+							</Button>
+							<Button Click="ClosePressed" Padding="20, 0, 24, 0" Height="30" Background="Transparent" VerticalContentAlignment="Center" BorderThickness="0">
+								<TextBlock Foreground="{StaticResource TextColor}" FontFamily="Segoe MDL2 Assets" FontSize="13" Text="&#xEF2C;" Background="Transparent"/>
+							</Button>
+						</StackPanel>
+					</Grid>
+
+					<ContentPresenter Grid.Row="1" Name="PART_ContentPresenter"
+					Margin="10, 0, 10, 10"
+					Content="{TemplateBinding Content}"/>
+				</Grid>
+			</Panel>
+		</ControlTemplate>
+	</Window.Template>
+</Window>

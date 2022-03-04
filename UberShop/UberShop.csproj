@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="WinApi" Version="4.0.0" />
+   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UI\Controls\QFloatingWindow.axaml.cs">
+      <DependentUpon>QFloatingWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="UI\Panels\QSamplePanel.axaml.cs">
+      <DependentUpon>QSamplePanel.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

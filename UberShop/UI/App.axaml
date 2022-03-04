@@ -1,0 +1,20 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="UberShop.App">
+	<Application.Resources>
+		<Color x:Key="WindowBackgroundColor">#151515</Color>
+		<Color x:Key="WindowForegroundColor">#242424</Color>
+		<Color x:Key="PanelBackgroundColor">#1A1A1A</Color>
+		<Color x:Key="IconColor">#B9B9B9</Color>
+		<Color x:Key="TextColor">#CCCCCC</Color>
+		
+		<SolidColorBrush x:Key="ThemeForegroundBrush" Color="{StaticResource TextColor}"/>
+</Application.Resources>
+	
+    <Application.Styles>
+		<StyleInclude Source="avares://Avalonia.Themes.Default/DefaultTheme.xaml"/>
+		<StyleInclude Source="avares://Avalonia.Themes.Default/Accents/BaseDark.xaml"/>
+
+		<StyleInclude Source="avares://UberShop/UI/Controls/QGroup.axaml"/>
+    </Application.Styles>
+</Application>
